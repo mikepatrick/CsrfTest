@@ -1,2 +1,15 @@
 apply plugin: 'java'
 apply plugin: 'war'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.springframework:spring-webmvc:4.0.5.RELEASE'
+	compile 'org.springframework:spring-core:4.0.5.RELEASE'
+	compile 'org.springframework:spring-jdbc:4.0.5.RELEASE'
+
+
+
+}

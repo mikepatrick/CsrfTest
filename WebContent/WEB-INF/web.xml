@@ -16,7 +16,7 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>welcome.jsp</welcome-file>
 	</welcome-file-list>
-	
+	<!-- 
 	<servlet>
          <servlet-name>WelcomeServlet</servlet-name>
          <servlet-class>com.cds.web.test.servlet.WelcomeServlet</servlet-class>
@@ -34,8 +34,9 @@
          <servlet-name>ProcessServlet</servlet-name>
          <url-pattern>/process</url-pattern>
     </servlet-mapping>
-
+	-->
    <!-- CSRFGuard context parameters, session listener, and filter -->
+   <!-- 
        <listener>
             <listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
        </listener>
@@ -54,7 +55,9 @@
        	<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
        	<param-value>/WEB-INF/CsrfGuard.overlay.properties</param-value>
        </context-param>
+       -->
        <!-- Declare and map CSRF enforcement mechanism -->
+       <!-- 
 	<filter>
 		<filter-name>CSRFGuard</filter-name>
 		<filter-class>org.owasp.csrfguard.CsrfGuardFilter</filter-class>
@@ -64,9 +67,36 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>       
 	
-	
+	-->
 	<!--  Servlet for javascript injection of token into html/jsp -->
 	
+	<!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	<servlet>
+	    <servlet-name>dispatcher</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	    <init-param>
+	        <param-name>contextConfigLocation</param-name>
+	        <param-value>/WEB-INF/config/TestWebProject-servlet.xml</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+    <context-param>
+	    <param-name>contextConfigLocation</param-name>
+   		<param-value>/WEB-INF/config/TestWebProject-servlet.xml</param-value>
+	</context-param>
+
+    <listener>
+   		<listener-class>
+      		org.springframework.web.context.ContextLoaderListener
+   		</listener-class>
+	</listener>
+	<!-- 
 	<servlet>
 		 <servlet-name>JavaScriptServlet</servlet-name>
 		 <servlet-class>org.owasp.csrfguard.servlet.JavaScriptServlet</servlet-class>
@@ -95,6 +125,6 @@
 		 <servlet-name>JavaScriptServlet</servlet-name>
 		 <url-pattern>/JavaScriptServlet</url-pattern>
 	</servlet-mapping>
-	
+	-->
 
 </web-app>
