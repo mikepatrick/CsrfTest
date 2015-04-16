@@ -18,38 +18,32 @@ import com.cds.web.test.domain.DomainObject;
 public class ApplicationConfig {
 
 	@Bean
-	public DataSource dataSource()
+	DataSource dataSource()
 	{
-		return new SingleConnectionDataSource();
+		new SingleConnectionDataSource()
 	}
 	
 	@Bean
-	public JdbcTemplate jdbcTemplate()
+	JdbcTemplate jdbcTemplate()
 	{
-		return new JdbcTemplate(dataSource());
+		new JdbcTemplate(dataSource())
 	}
 	
 	@Bean
-	public DomainObject domainObject()
+	DomainObject domainObject()
 	{
 		DomainObject dobj = new DomainObject();
-		dobj.setName("Frank");
-		dobj.setAddress("123 Main St");
+		dobj.name = "Frank"
+		dobj.address ="123 Main St"
+		
+		DomainObject obj2 = new DomainObject( [name: "Frank", address: "123 Elm Drive"] )
+		
 		return dobj;
 	}
 	
 	@Bean
-	public TestDao testDao()
+	TestDao testDao()
 	{
-		return new TestDao();
+		new TestDao()
 	}
-//	@Bean
-//	 public UrlBasedViewResolver setupViewResolver() {
-//	   UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-//	   resolver.setPrefix("/WEB-INF/pages/");
-//	   resolver.setSuffix(".jsp");
-//	   resolver.setViewClass(JstlView.class);
-//	   return resolver;
-//	 }
-	
 }

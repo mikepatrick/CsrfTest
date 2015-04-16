@@ -1,24 +1,24 @@
 package com.cds.web.test.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-
-public class WelcomeController {
+public class AjaxController  {
 	
-	@RequestMapping("/welcome")
-	public ModelAndView welcome()
+	@RequestMapping(value="ajaxCall", method=RequestMethod.POST)
+	public String ajaxCall(@RequestHeader("OWASP-CSRFTOKEN") String token)
 	{
-		return new ModelAndView("welcome");
+		"Ajax successful";
 	}
-
+	
 }

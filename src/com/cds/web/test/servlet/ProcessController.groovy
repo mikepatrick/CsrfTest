@@ -15,24 +15,15 @@ import com.cds.web.test.domain.DomainObject;
 @Controller
 public class ProcessController {
 
-	@Autowired TestDao testDao;
-	
+	@Autowired TestDao testDao;	
 	@Autowired DomainObject dob;
 	
 	@RequestMapping(value="/process")
 	public ModelAndView process(@RequestParam("username") String username, @RequestParam("password") String password)
 	{	
-		Map<String, Object> model = new HashMap<String, Object>();
-		
-		model.put("domainObjects", dob);
-		
 		if (username.length() > 0 && password.length() > 0)
-		{
-			return new ModelAndView("success", model);
-		}
+			new ModelAndView("success", ["domainObjects": dob]);
 		else
-		{
-			return new ModelAndView("failure", model);
-		}
+			new ModelAndView("failure");
 	}
 }
