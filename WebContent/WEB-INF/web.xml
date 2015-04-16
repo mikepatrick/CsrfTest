@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+						http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	id="WebApp_ID" version="3.0">	
+	<display-name>TestWebProject</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>welcome.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+         <servlet-name>WelcomeServlet</servlet-name>
+         <servlet-class>com.cds.web.test.servlet.WelcomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>WelcomeServlet</servlet-name>
+         <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+         <servlet-name>ProcessServlet</servlet-name>
+         <servlet-class>com.cds.web.test.servlet.ProcessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>ProcessServlet</servlet-name>
+         <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+
+   <!-- CSRFGuard context parameters, session listener, and filter -->
+       <listener>
+            <listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
+       </listener>
+       <listener>
+            <listener-class>org.owasp.csrfguard.CsrfGuardHttpSessionListener</listener-class>
+       </listener>
+       <context-param>
+             <param-name>Owasp.CsrfGuard.Config</param-name>
+             <param-value>/WEB-INF/CsrfGuard.properties</param-value>
+       </context-param>
+       <context-param>
+             <param-name>Owasp.CsrfGuard.Config.Print</param-name>
+             <param-value>false</param-value>
+       </context-param>    
+       <context-param>
+       	<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
+       	<param-value>/WEB-INF/CsrfGuard.overlay.properties</param-value>
+       </context-param>
+       <!-- Declare and map CSRF enforcement mechanism -->
+	<filter>
+		<filter-name>CSRFGuard</filter-name>
+		<filter-class>org.owasp.csrfguard.CsrfGuardFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CSRFGuard</filter-name> 
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>       
+	
+	
+	<!--  Servlet for javascript injection of token into html/jsp -->
+	
+	<servlet>
+		 <servlet-name>JavaScriptServlet</servlet-name>
+		 <servlet-class>org.owasp.csrfguard.servlet.JavaScriptServlet</servlet-class>
+		 <init-param>
+			 <param-name>source-file</param-name>
+			 <param-value>/WEB-INF/csrfguard.js</param-value>
+		 </init-param>
+		 <init-param>
+			 <param-name>inject-into-forms</param-name>
+			 <param-value>true</param-value>
+		 </init-param>
+		 <init-param>
+			 <param-name>inject-into-attributes</param-name>
+			 <param-value>true</param-value>
+		 </init-param>
+		<init-param>
+			 <param-name>domain-strict</param-name>
+			 <param-value>false</param-value>
+		</init-param>
+		<init-param>
+			 <param-name>referer-pattern</param-name>
+			 <param-value>.*localhost.*</param-value>
+		</init-param>
+	</servlet>	
+	<servlet-mapping>
+		 <servlet-name>JavaScriptServlet</servlet-name>
+		 <url-pattern>/JavaScriptServlet</url-pattern>
+	</servlet-mapping>
+	
+
+</web-app>
