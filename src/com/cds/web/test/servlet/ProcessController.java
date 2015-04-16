@@ -28,11 +28,11 @@ public class ProcessController {
 		
 		if (username.length() > 0 && password.length() > 0)
 		{
-			return new ModelAndView("success.jsp", model);
+			return new ModelAndView("success", model);
 		}
 		else
 		{
-			return new ModelAndView("failure.jsp", model);
+			return new ModelAndView("failure", model);
 		}
 	}
 }
