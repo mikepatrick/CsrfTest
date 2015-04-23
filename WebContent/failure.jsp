@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<!-- Nothing to see here -->
 <body>
 	<div>
 		<h2>You are NOT logged in!</h2>

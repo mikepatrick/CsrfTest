@@ -7,18 +7,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JSP to JSP</title>
 <!-- <script src="JavaScriptServlet"></script> -->
+
+<!-- 
+	Here again, we have a choice.  Use the tag library (you have to check the damn JSP in anyway),
+	or use the javascript DOM manipulation.
+	
+ -->
 </head>
 <body>
 <%
+	// You don't need to do any of this with #JSTL:
 	String parm1 = request.getParameter("parm1");
 	String parm2 = request.getParameter("parm2");
 
 %>
 	<div>
+		<!-- Again, this sucks: -->
 		<h2><% out.write(parm1); %></h2>
 		<br/>
 		<h3><% out.write(parm2); %></h3>
 		<div>
+			<!--  And this sucks way less: -->
 			${param.parm1}
 		</div>
 

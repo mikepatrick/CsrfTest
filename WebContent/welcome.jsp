@@ -9,6 +9,19 @@
 
 </head>
 <body>
+<!-- 
+Currently, this page is using the supplied tag library to inject the token.
+
+Both the login page (Login.jsp) and the login "action" that redirects to the login page
+(Login) are declared unprotected in the properties file.  The login page and the generic
+error page are the only unprotected resources.
+
+Submission of this form sends a request to the ProcessServlet, which will render success.jsp.
+
+Alternatively, we could use the call to JavaScriptServlet below, which would append the 
+hidden input via javascript after the page has loaded.
+
+ -->
 <!-- <script src="JavaScriptServlet"></script> -->
 	<div>
 		<h2>Login:</h2>

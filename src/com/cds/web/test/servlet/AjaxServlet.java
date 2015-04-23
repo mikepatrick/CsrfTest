@@ -36,6 +36,6 @@ public class AjaxServlet extends HttpServlet {
 		sb.append(token);
 		PrintWriter pw = response.getWriter();
 		pw.println(sb.toString());
-		
+	
 	}
 }
