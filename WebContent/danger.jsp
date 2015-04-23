@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+	<!-- The current configuration has the user being sent here when a CSRF attack is detected.   -->
 		<h2>Whutchu talkin' 'bout, Willis?</h2>
 	</div>
 </body>
