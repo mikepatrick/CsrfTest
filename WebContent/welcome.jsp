@@ -22,16 +22,20 @@ Alternatively, we could use the call to JavaScriptServlet below, which would app
 hidden input via javascript after the page has loaded.
 
  -->
-<!-- <script src="JavaScriptServlet"></script> -->
+<script src="JavaScriptServlet"></script>
 	<div>
 		<h2>Login:</h2>
 	</div>
 	<form name="loginForm" id="loginForm" action="process" method="post" >
 		<input type="text" id="username" name="username" value="Username"><br />
 		<input type="text" id="password" name="password" value="password"><br />
-		<input type="hidden" name="<csrf:tokenname/>" value="<csrf:tokenvalue/>" />
 		<input type="submit">
 	</form>
-	
+	<br /><br />
+	<form name="loginForm2" id="loginForm2" action="process" method="post" >
+		<input type="text" id="username" name="username" value="Username"><br />
+		<input type="text" id="password" name="password" value="password"><br />
+		<input type="submit">
+	</form>
 </body>
 </html>

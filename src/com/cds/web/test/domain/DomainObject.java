@@ -5,6 +5,11 @@ public class DomainObject {
 	private String name;
 	private String address;
 	
+	public DomainObject(String name, String address)
+	{
+		this.name = name;
+		this.address = address;
+	}
 	public String getName() {
 		return name;
 	}

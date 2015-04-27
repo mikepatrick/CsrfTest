@@ -9,7 +9,10 @@
 <body>
 	<div>
 	<!-- The current configuration has the user being sent here when a CSRF attack is detected.   -->
-		<h2>Whutchu talkin' 'bout, Willis?</h2>
+		<h2>No synchronizer token?!?</h2>
+		<div>
+			<img src="willis.jpg" alt="Whutchu talkin' 'bout, Willis?" />
+		</div>
 	</div>
 </body>
 </html>

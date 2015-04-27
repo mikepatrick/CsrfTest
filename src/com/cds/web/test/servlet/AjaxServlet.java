@@ -13,7 +13,9 @@ public class AjaxServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		doPost(request, response);
+		throw new UnsupportedOperationException("No GETting!");
+		//doPost(request, response);
+		
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -22,7 +24,7 @@ public class AjaxServlet extends HttpServlet {
 
 		response.getWriter().println(new StringBuilder()
 							.append("Content from ajax servlet\n")
-							.append(request.getParameter("OWASP-CSRFTOKEN")).toString());
+							.append(request.getParameter("cds_x_id")).toString());
 	
 	}
 	

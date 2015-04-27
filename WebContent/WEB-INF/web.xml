@@ -35,6 +35,24 @@
          <url-pattern>/process</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+         <servlet-name>DeletePageServlet</servlet-name>
+         <servlet-class>com.cds.web.test.servlet.DeletePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>DeletePageServlet</servlet-name>
+         <url-pattern>/DeletePage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+         <servlet-name>AjaxServlet</servlet-name>
+         <servlet-class>com.cds.web.test.servlet.AjaxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>AjaxServlet</servlet-name>
+         <url-pattern>/ajaxCall</url-pattern>
+    </servlet-mapping>
+        
    <!-- CSRFGuard context parameters, session listener, and filter -->
        <listener>
             <listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
@@ -52,7 +70,7 @@
        </context-param>    
        <context-param>
        	<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
-       	<param-value>/WEB-INF/CsrfGuard.overlay.properties</param-value>
+       	<param-value>/WEB-INF/CsrfGuard.properties</param-value>
        </context-param>
        <!-- Declare and map CSRF enforcement mechanism -->
 	<filter>

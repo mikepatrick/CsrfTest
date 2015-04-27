@@ -16,7 +16,8 @@ public class WelcomeServlet extends javax.servlet.http.HttpServlet {
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		request.getSession(true);
+		request.getSession(true);  // We need a session to bind the synchronizer token to.
+		
 		request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 
 	}
