@@ -69,10 +69,11 @@
              <param-value>false</param-value>
        </context-param>    
        <context-param>
-       	<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
-       	<param-value>/WEB-INF/CsrfGuard.properties</param-value>
+       		<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
+       		<param-value>/WEB-INF/CsrfGuard.properties</param-value>
        </context-param>
-       <!-- Declare and map CSRF enforcement mechanism -->
+       
+    <!-- Declare and map CSRF enforcement mechanism -->
 	<filter>
 		<filter-name>CSRFGuard</filter-name>
 		<filter-class>org.owasp.csrfguard.CsrfGuardFilter</filter-class>
@@ -84,7 +85,6 @@
 	
 	
 	<!--  Servlet for javascript injection of token into html/jsp -->
-	
 	<servlet>
 		 <servlet-name>JavaScriptServlet</servlet-name>
 		 <servlet-class>org.owasp.csrfguard.servlet.JavaScriptServlet</servlet-class>
@@ -113,6 +113,4 @@
 		 <servlet-name>JavaScriptServlet</servlet-name>
 		 <url-pattern>/JavaScriptServlet</url-pattern>
 	</servlet-mapping>
-	
-
 </web-app>

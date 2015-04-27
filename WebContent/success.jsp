@@ -29,16 +29,10 @@
 		</p>
 		<p>
 			<!-- 
-				Below, we include the token using JSTL (even though we're also using the JavaScriptServlet).
-					
 				In this configuration, all three protections are turned on:
 					Inject token into attributes (href, action, etc.).  Think GET.
 					Inject token into hidden input field on all forms (POST).
 					Protect AJAX requests, as well.
-					
-				The javascript that appends the token to each URL (for the GET part) isn't smart enough to check and see if the URL already
-				has a token.  So we'll get two (identical) CSRF tokens on this link (one from the taglib, one from the servlet).  
-				Harmless, but sloppy and butt-ugly.  
 			
 				Mix using the taglib and the javascript servlet with caution.
 			 -->
@@ -75,7 +69,7 @@
 			<option value="PageList.jsp?id=1430055047101&amp;mag_code=BNA~window:Main">Please Select an Option</option>
 			<option value="CopyPageStart.jsp?id=1430055047101&amp;mag_code=BNA&amp;page_id=2060~window:Main">Copy Page</option>
 			<option value="DeletePage?page_id=2060&amp;mag_code=BNA&amp;<csrf:tokenname/>=<csrf:tokenvalue/>~window:Main">Delete Page</option>
-			<option value="DeletePage?page_id=2060&amp;delete_prod_only=P&amp;mag_code=BNA&amp;<csrf:tokenname/>=<csrf:tokenvalue/>~window:Main">Delete Page from Production Only</option>
+			<option value="DeletePage?page_id=2060&amp;delete_prod_only=P&amp;mag_code=BNA&amp;<csrf:tokenname/>=<csrf:tokenvalue />~window:Main">Delete Page from Production Only</option>
 			<option value="ListPageAttrib.jsp?id=1430055047101&amp;page_id=2060&amp;mag_code=BNA~window:Main">Edit Page Attributes</option>
 			<option value="/servlet/OrdersGateway?cds_page_id=2060&amp;cds_mag_code=BNA~window:New">Preview Current Page</option>
 			<option value="/pubshtml/N3/BNA/CopyOfcouponsub.html~window:New">Preview Stored HTML</option>
@@ -106,13 +100,14 @@
 				   })
 		})
 	
-		// I ripped this functiorn straight out of engage, to display some of the more
+		// I ripped this javascript straight out of engage, to display some of the more
 		// "creative" ways that state-changing actions are sent to the server.
 		
 		// In this case, we have a select box, each with the following function attached
 		// to their onchange event.  In reality, the page contains many of these select boxes.
 		
-		// 
+		// Note the lovely use of window.open() and eval().
+		
 		function P7_JumpMenu(selObj,restore,pageID){ //v1.3 by Project Seven
 			var theFullString = selObj.options[selObj.selectedIndex].value;
 			if (restore) {
