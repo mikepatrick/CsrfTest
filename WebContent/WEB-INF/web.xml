@@ -16,60 +16,7 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>welcome.jsp</welcome-file>
 	</welcome-file-list>
-	<!-- 
-	<servlet>
-         <servlet-name>WelcomeServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.WelcomeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>WelcomeServlet</servlet-name>
-         <url-pattern>/welcome</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-         <servlet-name>ProcessServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.ProcessServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>ProcessServlet</servlet-name>
-         <url-pattern>/process</url-pattern>
-    </servlet-mapping>
-	-->
-   <!-- CSRFGuard context parameters, session listener, and filter -->
-   <!-- 
-       <listener>
-            <listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
-       </listener>
-       <listener>
-            <listener-class>org.owasp.csrfguard.CsrfGuardHttpSessionListener</listener-class>
-       </listener>
-       <context-param>
-             <param-name>Owasp.CsrfGuard.Config</param-name>
-             <param-value>/WEB-INF/CsrfGuard.properties</param-value>
-       </context-param>
-       <context-param>
-             <param-name>Owasp.CsrfGuard.Config.Print</param-name>
-             <param-value>false</param-value>
-       </context-param>    
-       <context-param>
-       	<param-name>Owasp.CsrfGuard.overlay.properties</param-name>
-       	<param-value>/WEB-INF/CsrfGuard.overlay.properties</param-value>
-       </context-param>
-       -->
-       <!-- Declare and map CSRF enforcement mechanism -->
-       <!-- 
-	<filter>
-		<filter-name>CSRFGuard</filter-name>
-		<filter-class>org.owasp.csrfguard.CsrfGuardFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>CSRFGuard</filter-name> 
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>       
-	
-	-->
-	<!--  Servlet for javascript injection of token into html/jsp -->
-	
+
 	<!-- The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
 	    <servlet-name>dispatcher</servlet-name>
