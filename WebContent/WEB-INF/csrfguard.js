@@ -421,15 +421,15 @@
 		xhr.setRequestHeader("FETCH-CSRF-TOKEN", "1");
 		xhr.send(null);
 		
-		var token_pair = "";
-		if(%DOUBLE_COOKIE_SUBMIT%)
-		{	
-			token_pair = document.cookie.split("=");
-		}
-		else
-		{
+//		var token_pair = "";
+//		if(%DOUBLE_COOKIE_SUBMIT%)
+//		{	
+//			token_pair = document.cookie.split("=");
+//		}
+//		else
+//		{
 			token_pair = xhr.responseText.split(":");
-		}
+//		}
 		var token_name = token_pair[0];
 		var token_value = token_pair[1];
 		
