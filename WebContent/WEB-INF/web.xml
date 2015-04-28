@@ -62,7 +62,7 @@
        </listener>
        <context-param>
              <param-name>Owasp.CsrfGuard.Config</param-name>
-             <param-value>/WEB-INF/CsrfGuard.properties</param-value>
+             <param-value>/com/cds/web/test/config/CsrfGuard.properties</param-value>
        </context-param>
        <context-param>
              <param-name>Owasp.CsrfGuard.Config.Print</param-name>
