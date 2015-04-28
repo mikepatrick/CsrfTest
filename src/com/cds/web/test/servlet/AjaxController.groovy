@@ -18,7 +18,7 @@ public class AjaxController  {
 	@RequestMapping(value="ajaxCall", method=RequestMethod.POST)
 	public String ajaxCall(@RequestHeader("cds_x_id") String token)
 	{
-		"Ajax successful";
+		"Ajax successful\n ${token}";
 	}
 	
 }
