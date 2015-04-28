@@ -18,7 +18,7 @@
 	 AjaxServlet, is also protected (the token ends up in the header).
 -->
 
-<script src="jquery-2.1.3.js" ></script>  <!--  let's make sure javascript files come through okay -->
+<script src="js/jquery-2.1.3.js" ></script>  <!--  let's make sure javascript files come through okay -->
 <script src="JavaScriptServlet"></script> <!-- Fetch the javascript that will inject the token where needed -->
 </head>
 <body>
@@ -39,13 +39,13 @@
 			<a href="jsp2jsp.jsp?parm1=differentParm1&parm2=differentParm2" >Click here to go to the other JSP (no JSTL)</a>
 		</p>
 		<p> <!--  #scriptletsSuck #useJSTLerryday #JSTLsavedMyMarriage -->
-			${domainObjects?.name} -- ${domainObjects?.address}
+			${domainObjects.name} -- ${domainObjects.address}
 		</p>
 		<div>
-			${param?.param1} - ${param?.param2 }
+			${param.param1} - ${param.param2 }
 		</div>
 		<div>
-			${ param?.optMeIn }
+			${ param.optMeIn }
 		</div>
 		<div>
 			<input type="button" id="ajaxButton" value="sendAJAX" />
@@ -68,8 +68,8 @@
 		<select name="pageoptions_1" id="pageselect_2060" onchange="P7_JumpMenu(this,1,2060)" class="select_style">
 			<option value="PageList.jsp?id=1430055047101&amp;mag_code=BNA~window:Main">Please Select an Option</option>
 			<option value="CopyPageStart.jsp?id=1430055047101&amp;mag_code=BNA&amp;page_id=2060~window:Main">Copy Page</option>
-			<option value="DeletePage?page_id=2060&amp;mag_code=BNA&amp;<csrf:tokenname/>=<csrf:tokenvalue/>~window:Main">Delete Page</option>
-			<option value="DeletePage?page_id=2060&amp;delete_prod_only=P&amp;mag_code=BNA&amp;<csrf:tokenname/>=<csrf:tokenvalue />~window:Main">Delete Page from Production Only</option>
+			<option value="DeletePage?page_id=2060&amp;mag_code=BNA~window:Main">Delete Page</option>
+			<option value="DeletePage?page_id=2060&amp;delete_prod_only=P&amp;mag_code=BNA&amp;~window:Main">Delete Page from Production Only</option>
 			<option value="ListPageAttrib.jsp?id=1430055047101&amp;page_id=2060&amp;mag_code=BNA~window:Main">Edit Page Attributes</option>
 			<option value="/servlet/OrdersGateway?cds_page_id=2060&amp;cds_mag_code=BNA~window:New">Preview Current Page</option>
 			<option value="/pubshtml/N3/BNA/CopyOfcouponsub.html~window:New">Preview Stored HTML</option>
