@@ -2,7 +2,6 @@ package com.cds.web.test.servlet;
 
 import groovy.util.logging.Log
 import groovy.xml.MarkupBuilder
-import groovy.xml.MarkupBuilderHelper
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -10,12 +9,13 @@ import javax.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.PropertySource
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.ModelAndView
-import org.springframework.http.MediaType
+
 import com.cds.web.test.dao.TestDao
 import com.cds.web.test.domain.DomainObject
 //@Grab('log4j:log4j:1.2.16')
@@ -31,7 +31,13 @@ public class ProcessController {
 //	@Value("#{org.owasp.csrfguard.Enabled}") String csrfGuardEnabled
 //	@Value("#{org.owasp.csrfguard.TokenPerPage}") String tokenPerPage
 //	@Value("#{org.owasp.csrfguard.Ajax}") String protectAjax
-//	
+	
+	@RequestMapping("/welcome")
+	public ModelAndView welcome()
+	{
+		new ModelAndView("welcome")
+	}
+	
 	@RequestMapping(value="/process")
 	public ModelAndView process(@RequestParam("username") String username, @RequestParam("password") String password)
 	{	
@@ -58,7 +64,7 @@ public class ProcessController {
 		})
 	}
 	
-	@RequestMapping(value="/JavaScriptServlet", method=RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+	@RequestMapping(value="/JavaScriptServlet", method=RequestMethod.GET, produces = org.springframework.http.MediaType.TEXT_HTML_VALUE)
 	public @ResponseBody String getJavaScript(HttpServletRequest request, HttpServletResponse response)
 	{
 		CsrfJavaScriptUtils.doGet(request, response)
@@ -68,6 +74,12 @@ public class ProcessController {
 	public @ResponseBody String getTokenz(HttpServletRequest request, HttpServletResponse response)
 	{
 		CsrfJavaScriptUtils.doPost(request, response)
+	}
+	
+	@RequestMapping(value="ajaxCall", method=RequestMethod.GET)
+	public @ResponseBody String ajaxCall(@RequestHeader(value="cds_x_id", required=false) String token)
+	{
+		"Ajax successful\n ${token}";
 	}
 	
 }
