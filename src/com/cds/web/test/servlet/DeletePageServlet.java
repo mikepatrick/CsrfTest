@@ -17,6 +17,8 @@ public class DeletePageServlet extends HttpServlet{
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		response.getWriter().write("<h2>You have deleted page " + request.getParameter("pageId") + "!</h2>");
+		response.setContentType("text/html");
+		response.getWriter().print("<h2>You have deleted page " + request.getParameter("page_id") + "!</h2><br/><a href='welcome'>Back to login</a>");
+		response.getWriter().flush();
 	}
 }
