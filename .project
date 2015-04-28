@@ -3,6 +3,7 @@
 	<name>TestWebProject</name>
 	<comment></comment>
 	<projects>
+		<project>csrfguard</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
