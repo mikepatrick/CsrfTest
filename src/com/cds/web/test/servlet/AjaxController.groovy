@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AjaxController  {
 	
 	@RequestMapping(value="ajaxCall", method=RequestMethod.POST)
-	public String ajaxCall(@RequestHeader("OWASP-CSRFTOKEN") String token)
+	public String ajaxCall(@RequestHeader("cds_x_id") String token)
 	{
 		"Ajax successful";
 	}

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import com.cds.web.test.dao.TestDao;
-import com.cds.web.test.domain.DomainObject;
+import com.cds.web.test.domain.JavaDomainObject;
 
 @Configuration
 @EnableWebMvc
@@ -30,13 +30,13 @@ public class ApplicationConfig {
 	}
 	
 	@Bean
-	DomainObject domainObject()
+	JavaDomainObject domainObject()
 	{
-		DomainObject dobj = new DomainObject();
+		JavaDomainObject dobj = new JavaDomainObject();
 		dobj.name = "Frank"
 		dobj.address ="123 Main St"
 		
-		DomainObject obj2 = new DomainObject( [name: "Frank", address: "123 Elm Drive"] )
+		JavaDomainObject obj2 = new JavaDomainObject( [name: "Frank", address: "123 Elm Drive"] )
 		
 		return dobj;
 	}

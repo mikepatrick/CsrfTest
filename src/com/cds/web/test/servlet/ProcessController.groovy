@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cds.web.test.dao.TestDao;
-import com.cds.web.test.domain.DomainObject;
+import com.cds.web.test.domain.JavaDomainObject;
 
 @Controller
 public class ProcessController {
 
 	@Autowired TestDao testDao;	
-	@Autowired DomainObject dob;
+	@Autowired JavaDomainObject dob;
 	
 	@RequestMapping(value="/process")
 	public ModelAndView process(@RequestParam("username") String username, @RequestParam("password") String password)
@@ -25,5 +25,11 @@ public class ProcessController {
 			new ModelAndView("success", ["domainObjects": dob]);
 		else
 			new ModelAndView("failure");
+	}
+	
+	@RequestMapping(value="/DeletePage")
+	public ModelAndView deleteThePageFromTheThing()
+	{
+		"page deleted"
 	}
 }

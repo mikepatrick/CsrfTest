@@ -1,11 +1,11 @@
 package com.cds.web.test.domain;
 
-public class DomainObject {
+public class JavaDomainObject {
 
 	private String name;
 	private String address;
 	
-	public DomainObject(String name, String address)
+	public JavaDomainObject(String name, String address)
 	{
 		this.name = name;
 		this.address = address;
