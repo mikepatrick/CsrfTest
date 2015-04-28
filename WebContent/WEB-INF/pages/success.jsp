@@ -39,13 +39,13 @@
 			<a href="jsp2jsp.jsp?parm1=differentParm1&parm2=differentParm2" >Click here to go to the other JSP (no JSTL)</a>
 		</p>
 		<p> <!--  #scriptletsSuck #useJSTLerryday #JSTLsavedMyMarriage -->
-			${domainObjects.name} -- ${domainObjects.address}
+			${domainObjects?.name} -- ${domainObjects?.address}
 		</p>
 		<div>
-			${param.param1} - ${param.param2 }
+			${param?.param1} - ${param?.param2 }
 		</div>
 		<div>
-			${ param.optMeIn }
+			${ param?.optMeIn }
 		</div>
 		<div>
 			<input type="button" id="ajaxButton" value="sendAJAX" />

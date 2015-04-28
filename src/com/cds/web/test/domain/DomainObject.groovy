@@ -5,6 +5,6 @@ import groovy.transform.EqualsAndHashCode;
 @EqualsAndHashCode
 public class DomainObject {
 
-	private String name;
-	private String address;
+	String name;
+	String address;
 }
