@@ -5,10 +5,24 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	main {
+		groovy {
+			srcDir 'src'
+		}
+		java {
+			srcDir 'src'
+		}
+	}
+}
 dependencies {
 	compile 'org.springframework:spring-webmvc:4.0.5.RELEASE'
 	compile 'org.springframework:spring-core:4.0.5.RELEASE'
 	compile 'org.springframework:spring-jdbc:4.0.5.RELEASE'
 	compile 'org.codehaus.groovy:groovy-all:2.3.10'
+	
+	// For the crummy java servlets
+	compile 'javax.servlet:javax.servlet-api:3.0.1'
+	
 
 }
