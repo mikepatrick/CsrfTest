@@ -1,20 +1,26 @@
 package com.cds.web.test.config;
 
+import groovy.transform.CompileStatic
+
 import javax.sql.DataSource
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.PropertySource
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.datasource.SingleConnectionDataSource
 import org.springframework.web.servlet.config.annotation.EnableWebMvc
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.cds.web.test.dao.TestDao
 import com.cds.web.test.domain.DomainObject
-import com.cds.web.test.domain.JavaDomainObject
 
 @Configuration
+@PropertySource("classpath:/com/cds/web/test/config/CsrfGuard.properties")
 @EnableWebMvc
-public class ApplicationConfig {
+@CompileStatic
+public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	DataSource dataSource()
@@ -38,6 +44,18 @@ public class ApplicationConfig {
 		DomainObject obj2 = new DomainObject( [name: "Frank", address: "123 Elm Drive"] )
 		
 		return dobj;
+	}
+	
+//	@Bean 
+//	public PropertyPlaceholderConfigurer propertyConfig() {
+//		PropertyPlaceholderConfigurer config = new PropertyPlaceholderConfigurer()
+//		config.setLocations(new Resource[] {new ClassPathResource("CsrfGuard.properties") } )
+//		return config	
+//	}
+	
+	@Bean
+	public PropertySourcesPlaceholderConfigurer propertyConfig() {
+		new PropertySourcesPlaceholderConfigurer()
 	}
 	
 	@Bean
