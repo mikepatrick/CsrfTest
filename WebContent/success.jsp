@@ -85,7 +85,7 @@
 		
 		//Here we use JQuery to issue a simple AJAX request.  CSRFGuard hijacks the underlying XHR object's send()
 		//method, and appends the token as a request header.  The filter will look for this header and validate the token.
-		
+		//In this sense, the call to JavaScriptServlet gives us AJAX protection "for free".
 			$.ajax({url: "ajaxCall", 
 					htmlOption: "optionA", 
 					success: function(ajaxData) 
