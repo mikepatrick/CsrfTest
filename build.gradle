@@ -2,6 +2,11 @@ apply plugin: 'groovy'
 apply plugin: 'war'
 
 repositories {
+	flatDir {
+		name 'localRepo'
+		dirs 'lib'
+		//dirs 'C:\\Users\\mpatrick\\csrfguard\\OWASP-CSRFGuard\\csrfguard\\target'
+	}
 	mavenCentral()
 }
 
@@ -20,9 +25,9 @@ dependencies {
 	compile 'org.springframework:spring-core:4.0.5.RELEASE'
 	compile 'org.springframework:spring-jdbc:4.0.5.RELEASE'
 	compile 'org.codehaus.groovy:groovy-all:2.3.10'
-	
-	// For the crummy java servlets
-	compile 'javax.servlet:javax.servlet-api:3.0.1'
+	compile 'localRepo:csrfguard-3.1.0-SNAPSHOT'
+	runtime 'org.apache.logging.log4j:log4j-core:2.1'
+	compile 'javax.servlet:javax.servlet-api:3.0.1'  //get rid of this with the servlets.
 	
 
 }
