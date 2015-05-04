@@ -17,43 +17,6 @@
 		<welcome-file>welcome.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<servlet>
-         <servlet-name>WelcomeServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.WelcomeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>WelcomeServlet</servlet-name>
-         <url-pattern>/welcome</url-pattern>
-    </servlet-mapping>
-    
-    <!-- 
-    <servlet>
-         <servlet-name>ProcessServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.ProcessServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>ProcessServlet</servlet-name>
-         <url-pattern>/process</url-pattern>
-    </servlet-mapping>
-	-->
-    <servlet>
-         <servlet-name>DeletePageServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.DeletePageServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>DeletePageServlet</servlet-name>
-         <url-pattern>/DeletePage</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-         <servlet-name>AjaxServlet</servlet-name>
-         <servlet-class>com.cds.web.test.servlet.AjaxServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-         <servlet-name>AjaxServlet</servlet-name>
-         <url-pattern>/ajaxCall</url-pattern>
-    </servlet-mapping>
-        
    <!-- CSRFGuard context parameters, session listener, and filter -->
        <listener>
             <listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
