@@ -26,6 +26,7 @@
          <url-pattern>/welcome</url-pattern>
     </servlet-mapping>
     
+    <!-- 
     <servlet>
          <servlet-name>ProcessServlet</servlet-name>
          <servlet-class>com.cds.web.test.servlet.ProcessServlet</servlet-class>
@@ -34,7 +35,7 @@
          <servlet-name>ProcessServlet</servlet-name>
          <url-pattern>/process</url-pattern>
     </servlet-mapping>
-
+	-->
     <servlet>
          <servlet-name>DeletePageServlet</servlet-name>
          <servlet-class>com.cds.web.test.servlet.DeletePageServlet</servlet-class>
